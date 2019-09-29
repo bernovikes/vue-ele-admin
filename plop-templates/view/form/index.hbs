@@ -1,0 +1,29 @@
+<template>
+  <x-form ref="form" :config="form_config" />
+</template>
+<script>
+import {  {{model}}  } from '@/api/{{api}}'
+import XForm from '@/components/XForm'
+import mbox from '@/utils/message'
+export default {
+  name: '{{ properCase name }}',
+  components: {
+    XForm
+  },
+  data() {
+    const store = {}
+    store.form_config = [
+      { button: '提交' }
+    ]
+  },
+  methods: {
+    async submit() {
+      await {{model}}()
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

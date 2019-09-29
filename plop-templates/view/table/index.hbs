@@ -1,0 +1,41 @@
+<template>
+  <x-table :list="list" :total="total" :current="current" :config="config" @current-change="fetchList" @selection="handleSelectionChange" />
+</template>
+<script>
+import {  {{model}}  } from '@/api/{{api}}'
+import XTable from '@/components/XTable'
+import XDialog from '@/components/XDialog'
+import XForm from '@/components/XForm'
+import mbox from '@/utils/message'
+export default {
+  name: '{{ properCase name }}',
+  components: {
+    XTable,
+    XDialog,
+    XForm
+  },
+  data() {
+    const store = {}
+    store.total = 0
+    store.current = 0
+    store.config = []
+    store.list = []
+    return store
+  },
+  mounted(){
+    this.fetchList()
+  },
+  methods: {
+    async fetchList() {
+        await {{model}}()
+    },
+    handleSelectionChange() {
+
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

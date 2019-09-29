@@ -1,0 +1,10 @@
+import request from '@/utils/request'
+
+export function {{ name }}({{params}}) {
+  return request({
+    url: '{{ url }}',
+    methods: '{{ method }}',
+    {{params}}
+  })
+}
+
